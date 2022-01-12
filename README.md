@@ -1,7 +1,8 @@
+
 # Note-App
 This is Note Making App.
 
-#Technology Used:
+# Technology Used:
 Room Database
 Clean Architecture
 MVVM
