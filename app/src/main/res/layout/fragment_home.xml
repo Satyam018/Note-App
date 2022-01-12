@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="viewModel1"
+            type="com.example.todoapp.viewmodel.HomeViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeFragment">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/bar1"
+            android:layout_height="wrap_content"
+            android:background="@color/lightblue">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notes Created"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/roboto_mono_bold"
+                    android:layout_marginVertical="20dp"
+                    />
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclernotes"
+            app:itemViewModels="@{viewModel1.noteItems}"
+            android:layout_width="match_parent"
+            android:layout_below="@id/bar1"
+            android:layout_marginTop="8dp"
+            app:layoutData="@{viewModel1.noteItemLayout}"
+            android:layout_height="wrap_content"
+            android:visibility="@{(viewModel1.noteItems.size()>0)?View.VISIBLE:View.GONE}"
+             />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightblue"
+            android:onClick="@{()->viewModel1.onAddPressed()}"
+            android:src="@drawable/ic_baseline_add_24"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp" />
+
+
+    </RelativeLayout>
+</layout>
