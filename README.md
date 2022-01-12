@@ -7,4 +7,5 @@ Room Database,
 Clean Architecture,
 MVVM,
 Dagger_Hilt,
-Kotlin FLow,
+Kotlin Flow,
+Navigation Graph
